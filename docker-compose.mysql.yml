@@ -6,7 +6,7 @@ services:
     depends_on:
       - database
     ports:
-      - 80:80
+      - 2101:80
     environment:
       - DB_CONNECTION=${DB_CONNECTION}
       - DB_HOST=${DB_HOST}
