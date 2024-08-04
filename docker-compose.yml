@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  koel:
+    image: phanan/koel
+    depends_on:
+      - database
+    ports:
+      - 2101:80
+    environment:
+      - DB_CONNECTION=${DB_CONNECTION}
+      - DB_HOST=${DB_HOST}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_DATABASE=${DB_DATABASE}
+    volumes:
+      - /mnt/storage_box/Media/Music:/music
+      - /mnt/storage_box/Media/Music/covers:/var/www/html/public/img/covers
+      - /portainer/Files/AppData/Config/koel/search_index:/var/www/html/storage/search-indexes
+
+  database:
+    image: mariadb:10.11
+    volumes:
+      - /portainer/Files/AppData/Config/koel/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+volumes:
+  db:
+    driver: local
+  music:
+    driver: s3
+  covers:
+    driver: s3
+  search_index:
+    driver: local
