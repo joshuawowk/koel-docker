@@ -19,6 +19,7 @@ services:
       - /storagebox/media/music/covers:/var/www/html/public/img/covers
       - /docker/koel/search_index:/var/www/html/storage/search-indexes
     networks:
+      - koel_default
       - npm_net
 
   database:
@@ -30,10 +31,12 @@ services:
       - POSTGRES_USER=koel
       - POSTGRES_PASSWORD=${KOEL_PASSWORD}
     networks:
-      - npm_net
+      - koel_default
 
 networks:
   npm_net:
+    external: true
+  koel_default:
     external: true
 
 # volumes:
