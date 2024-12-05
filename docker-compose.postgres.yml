@@ -3,36 +3,36 @@ version: '3'
 services:
   koel:
     image: phanan/koel
-    depends_on:
-      - database
-    # environment:
-    #   - DB_CONNECTION=pgsql
-    #   - DB_HOST=koel-database-1
-    #   - DB_PORT=5432
-    #   - DB_USERNAME=koel
-    #   - DB_PASSWORD=${KOEL_PASSWORD}
-    #   - DB_DATABASE=koel
+    # depends_on:
+    #   - database
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres-shared
+      - DB_PORT=5432
+      - DB_USERNAME=koel
+      - DB_PASSWORD=${KOEL_PASSWORD}
+      - DB_DATABASE=koel
     volumes:
       - /storagebox/media/music:/music
       - /storagebox/media/music/covers:/var/www/html/public/img/covers
       - /docker/koel2/search_index:/var/www/html/storage/search-indexes
     networks:
-      - koel_default
+      # - koel_default
       - npm_net
 
-  database:
-    image: postgres:13
-    volumes:
-      - /docker/koel2/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=koel
-      - POSTGRES_USER=koel
-      - POSTGRES_PASSWORD=${KOEL_PASSWORD}
-    networks:
-      - koel_default
+  # database:
+  #   image: postgres:13
+  #   volumes:
+  #     - /docker/koel2/db:/var/lib/postgresql/data
+  #   environment:
+  #     - POSTGRES_DB=koel
+  #     - POSTGRES_USER=koel
+  #     - POSTGRES_PASSWORD=${KOEL_PASSWORD}
+  #   networks:
+  #     - koel_default
 
 networks:
   npm_net:
     external: true
-  koel_default:
-    external: true
+  # koel_default:
+  #   external: true
