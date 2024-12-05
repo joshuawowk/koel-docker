@@ -7,13 +7,13 @@ services:
       - database
     # ports:
     #   - 80:80
-    environment:
-      - DB_CONNECTION=pgsql
-      - DB_HOST=database
-      - DB_PORT=5432
-      - DB_USERNAME=koel
-      - DB_PASSWORD=${KOEL_PASSWORD}
-      - DB_DATABASE=koel
+    # environment:
+    #   - DB_CONNECTION=pgsql
+    #   - DB_HOST=database
+    #   - DB_PORT=5432
+    #   - DB_USERNAME=koel
+    #   - DB_PASSWORD=${KOEL_PASSWORD}
+    #   - DB_DATABASE=koel
     volumes:
       - /storagebox/media/music:/music
       - /storagebox/media/music/covers:/var/www/html/public/img/covers
