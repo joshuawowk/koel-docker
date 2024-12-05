@@ -1,15 +1,15 @@
 version: '3'
 
 services:
-  koel:
+  app:
     image: phanan/koel
     depends_on:
-      - database
+      - koel-db
     # ports:
     #   - 80:80
     environment:
       - DB_CONNECTION=pgsql
-      - DB_HOST=database
+      - DB_HOST=koel-db
       - DB_PORT=5432
       - DB_USERNAME=koel
       - DB_PASSWORD=${KOEL_PASSWORD}
@@ -19,7 +19,7 @@ services:
       - /storagebox/media/music/covers:/var/www/html/public/img/covers
       - /docker/koel/search_index:/var/www/html/storage/search-indexes
 
-  database:
+  db:
     image: postgres:13
     volumes:
       - /docker/koel/db:/var/lib/postgresql/data
@@ -27,6 +27,11 @@ services:
       - POSTGRES_DB=koel
       - POSTGRES_USER=koel
       - POSTGRES_PASSWORD=${KOEL_PASSWORD}
+
+networks:
+  npm_net:
+    name: npm_net
+    external: true
 
 # volumes:
 #   db:
