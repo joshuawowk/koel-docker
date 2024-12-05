@@ -24,7 +24,7 @@ services:
   database:
     image: postgres:13
     volumes:
-      - /docker/koel/db:/var/lib/postgresql/data
+      - /docker/koel/db2:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=koel
       - POSTGRES_USER=koel
