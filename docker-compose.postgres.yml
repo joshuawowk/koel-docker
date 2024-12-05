@@ -5,17 +5,17 @@ services:
     image: phanan/koel
     # depends_on:
     #   - database
-    # environment:
-    #   - DB_CONNECTION=pgsql
-    #   - DB_HOST=postgres-shared
-    #   - DB_PORT=5432
-    #   - DB_USERNAME=koel
-    #   - DB_PASSWORD=${KOEL_PASSWORD}
-    #   - DB_DATABASE=koel
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres-shared
+      - DB_PORT=5432
+      - DB_USERNAME=koel
+      - DB_PASSWORD=${KOEL_PASSWORD}
+      - DB_DATABASE=koel
     volumes:
       - /storagebox/media/music:/music
       - /storagebox/media/music/covers:/var/www/html/public/img/covers
-      - /docker/koel2/search_index:/var/www/html/storage/search-indexes
+      - /docker/koel_1/search_index:/var/www/html/storage/search-indexes
     networks:
       # - koel_default
       - npm_net
