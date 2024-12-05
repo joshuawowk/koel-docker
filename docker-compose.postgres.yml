@@ -15,7 +15,7 @@ services:
     volumes:
       - /storagebox/media/music:/music
       - /storagebox/media/music/covers:/var/www/html/public/img/covers
-      - /docker/koel_1/search_index:/var/www/html/storage/search-indexes
+      - search_index:/var/www/html/storage/search-indexes
     networks:
       # - koel_default
       - npm_net
@@ -36,3 +36,7 @@ networks:
     external: true
   # koel_default:
   #   external: true
+
+volumes:
+  search_index:
+    driver: local
