@@ -12,7 +12,7 @@ services:
       - DB_HOST=database
       - DB_PORT=5432
       - DB_USERNAME=koel
-      - DB_PASSWORD=<koel_password>
+      - DB_PASSWORD=${KOEL_PASSWORD}
       - DB_DATABASE=koel
     volumes:
       - /storagebox/media/music:/music
@@ -26,7 +26,7 @@ services:
     environment:
       - POSTGRES_DB=koel
       - POSTGRES_USER=koel
-      - POSTGRES_PASSWORD=<koel_password>
+      - POSTGRES_PASSWORD=${KOEL_PASSWORD}
 
 # volumes:
 #   db:
