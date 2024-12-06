@@ -11,7 +11,7 @@ services:
       - DB_PORT=5432
       - DB_USERNAME=koel
       - DB_PASSWORD=${KOEL_PASSWORD}
-      - DB_DATABASE=koel
+      - DB_DATABASE=koel-1
       # - APP_KEY=${KOEL_APP_KEY}
       # - APP_URL=https://koel.jwowk.net
       # - FORCE_HTTPS=true
