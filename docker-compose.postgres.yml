@@ -14,8 +14,8 @@ services:
       - DB_DATABASE=koel
       - FORCE_HTTPS=true
     volumes:
-      - /storagebox/media/music:/music
-      - /storagebox/media/music/covers:/var/www/html/public/img/covers
+      - /mnt/storage_box/media/music:/music
+      - /mnt/storage_box/media/music/covers:/var/www/html/public/img/covers
       - search_index:/var/www/html/storage/search-indexes
     networks:
       # - koel_default
