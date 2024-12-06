@@ -2,7 +2,7 @@ version: '3'
 
 services:
   koel:
-    image: wowkomooth/koel
+    image: wowkomooth/koel-docker
     # depends_on:
     #   - database
     environment:
