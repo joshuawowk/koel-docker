@@ -14,7 +14,7 @@ services:
       - DB_DATABASE=koel
       # - APP_KEY=${KOEL_APP_KEY}
       # - APP_URL=https://koel.jwowk.net
-      - FORCE_HTTPS=true
+      # - FORCE_HTTPS=true
     volumes:
       - /mnt/storage_box/media/music:/music
       - /mnt/storage_box/media/music/covers:/var/www/html/public/img/covers
