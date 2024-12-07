@@ -16,8 +16,8 @@ services:
       # - APP_URL=https://koel.jwowk.net
       - FORCE_HTTPS=true
     volumes:
-      - /mnt/storage_box/media/music:/music
-      - /mnt/storage_box/media/music/covers:/var/www/html/public/img/covers
+      - /mnt/media/music:/music
+      - /mnt/media/music/covers:/var/www/html/public/img/covers
       - search_index:/var/www/html/storage/search-indexes
     networks:
       # - koel_default
